@@ -1,0 +1,8 @@
+/* MEDIA QUERIES */
+@mobile:      ~"only screen and (max-width: 480px)";
+@tablet:      ~"only screen and (min-width: 481px) and (max-width: 959px)";
+@desktop:     ~"only screen and (min-width: 960px)";
+.nodesktop{ @media @desktop{display:none;} }
+.notablet{ @media @tablet, @mobile{ display: none; } }
+.nomobile{ @media @mobile{ display: none; } }
+/* ####################################################### */

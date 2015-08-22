@@ -1,0 +1,33 @@
+include ../dw/dw.jade
+
+- var domain = "index.html"
+
+//- METAS
+- var title = "DBOWeb2.0"
+- var keywords = ""
+- var description = ""
+
+//- STYLESHEETS
+- var stylesheets = []
+- stylesheets.push('http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+- stylesheets.push('http://fonts.googleapis.com/css?family=Lato:300,400,700')
+- stylesheets.push('http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css')
+- stylesheets.push('https://cdn.rawgit.com/staaky/strip/master/dist/css/strip.css')
+- stylesheets.push('site/css/_style.css') //Main style
+
+//- JAVASCRIPTS
+- var javascripts = []
+- javascripts.push('http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.core.min.js')
+- javascripts.push('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+- javascripts.push('http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js')
+- javascripts.push('https://cdn.rawgit.com/staaky/strip/master/dist/js/strip.pkgd.min.js')
+- javascripts.push('site/js/_script.js') //Main Js
+
+//- MENU
+- var menu = [] //- menu.push('PageName', 'Slug')
+- menu.push(['Inicio', 'index'])
+- menu.push(['Nosotros', 'nosotros'])
+- menu.push(['Servicios', 'servicios'])
+- menu[2].push(['Primer servicio', 'primer-servicio'])
+- menu[2].push(['Segundo servicio', 'segundo-servicio'])
+- menu.push(['Contacto', 'contacto'])
