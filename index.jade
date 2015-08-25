@@ -73,6 +73,26 @@ include site/_config.jade
     .container.grid
       .col12.col-t6.col-m6.push-t3.push-m6 .col12 .col-t6 .col-m6 .push-t3 .push-m6
     
+    // ###################################### FONDO
+    .container
+      h2.col12 Imagen de fondo : Backstretch
+    .container
+      .col6
+        h3 Simple. 1 imagen: <br> +sliderbg('body', 'rutaDeImagen.jpg')
+      .col6
+        h3 Slider de imagenes: <br> +sliderbg('body', 'imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg')
+        +sliderbg('body','http://placehold.it/800x800/aabbff', 'http://placehold.it/800x800/bbffaa', 'http://placehold.it/800x800/ffbbaa')
+    .container
+      .col6
+        h3 Fondo simple en elemento: <br> +sliderbg('#bgslider1', 'rutaDeImagen.jpg')
+        +sliderbg('#bgslider1','http://lorempixel.com/600/200')
+        #bgslider1
+          p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, dolorum, delectus. Ea in officia nam a iure voluptates similique ullam, praesentium atque, alias id. Adipisci debitis illum voluptate molestias optio!
+      .col6
+        h3 Slider de imagenes de fondo: <br> +sliderbg('body', 'imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg')
+        +sliderbg('#bgslider2','http://lorempixel.com/600/200', 'http://lorempixel.com/601/200', 'http://lorempixel.com/600/201')
+        #bgslider2
+          p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima saepe hic esse eaque recusandae temporibus, nobis ipsum beatae, magnam facilis, quidem unde repellendus accusantium odit similique aut suscipit quo fugiat.
     // ###################################### HEAD
     
     .container
@@ -87,17 +107,20 @@ include site/_config.jade
     
     // ###################################### LIGHTBOX
     .container
-      h2.col12 Modalbox : fluidbox
+      h2.col12 Modalbox : Swipebox
     .container
       .col4
-        a(href="http://placehold.it/400x300").strip
-          img(src="http://placehold.it/200x200", alt="")
+        h3 Imagen <br> a(href="rutadeImagen.jpg").box
+        a(href="http://placehold.it/400x300").box
+          img(src="http://placehold.it/200x200", alt="").w100
       .col4
-        a(href="http://placehold.it/800x200").strip
-          img(src="http://placehold.it/200x200", alt="")
+        h3 Imagen con titulo <br> a(href="rutadeImagen.jpg", title="Título de imagen").box
+        a(href="http://placehold.it/800x200", title="Título de imagen").box
+          img(src="http://placehold.it/200x200", alt="").w100
       .col4
-        a(href="http://placehold.it/100x100").strip
-          img(src="http://placehold.it/200x200", alt="")
+        h3 Video <br> a(href=""http://vimeo.com o http://youtube.com URL").box
+        a(href="http://vimeo.com/29193046").box
+          img(src="https://i.vimeocdn.com/video/236084241_150x84.jpg", alt="").w100
 
     
     // ###################################### SLIDERS
@@ -128,4 +151,28 @@ include site/_config.jade
               .col3 .col3
               .col3 .col3
               .col3 .col3
+    .container
+      h3.col6 Slider múltiple con Modalbox <br>+slider('multiplebox', 'img1.jpg', 'img2.jpg', 'img3.jpg')
+    .container
+      .col6
+        +slider('multiplebox', 'http://lorempixel.com/400/200', 'http://lorempixel.com/404/200', 'http://lorempixel.com/402/200', 'http://lorempixel.com/403/200', 'http://lorempixel.com/401/200')
+    
+    // ###################################### FORMULARIO
+    
+    .container
+      h2.col12 Formularios
+    .container
+      .col6
+        h3 Formulario simple <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo')
+        +formSimple('ealbinu@gmail.com', 'albin@dragonbarbudo.com', 'Probando correo electronico')
+      .col6
+        h3 Formulario simple + Campos personalizados <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo') : +formInput('text', 'Empresa', 'Empresa:', '¿Dónde trabajas?', false)
+        +formSimple('ealbinu@gmail.com', 'albin@dragonbarbudo.com', 'Probando correo electronico')
+          .container
+            .col6
+              +formInput('text', 'Empresa', 'Empresa:', '¿Dónde trabajas?', false)
+            .col6
+              +formInput('date', 'Nacimiento', 'Fecha de nacimiento:', '', false)
+
+
     +scripts
