@@ -58,32 +58,7 @@
 }
 
 
-//Display GRID para container
-.grid{
-  background: url(http://griddle.it/940-12-20?num=0) repeat-y;
-  background-size:940px;
-  background-position: center;
-  outline: 1px solid rgba(0,0,0,0.2);
-  position: relative;
-  @media @tablet{
-    background: url(http://griddle.it/464-12-8?num=0) repeat-y;
-    background-size: 470px;
-    background-position: 4px;
-  }
-  @media @mobile{
-    background: url(http://griddle.it/960-12-20?num=0) repeat-y;
-    background-size: 100%-(@gutter*2);
-    background-position:center;
-  }
-  &:before{
-    content:".container";
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 0.6em;
-    color:#aaa;
-  }
-}
+
 // HTML AS FRAMEWORK COLUMN GRID
 // cols
 .generator-c(@columns);

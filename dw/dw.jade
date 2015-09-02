@@ -17,25 +17,34 @@ mixin head(titleTxt, links, keywords, description)
     if block
       block
 
-mixin menuList(activePage, nav, type)
-  ul.listMain(class=(type === 'horizontal' ? "horizontal" : "")  )
+mixin menu(activePage, nav, type, prefix, suffix, linkClass, atts)
+  - linkClass = (linkClass ? linkClass : "")
+  - atts = (atts ? atts : {})
+  
+  - prefix = (prefix ? prefix : "")
+  - suffix = (suffix ? suffix : ".html")
+  
+  - prefix = (prefix==' ' ? "" : prefix)
+  - suffix = (suffix==' ' ? "" : suffix)
+  
+  //-Creator
+  
+  ul.listMain(class=type)
     if type == 'horizontal'
       - var howMany = nav.length
       - var widthCol = Math.round(12/howMany)
     - each n in nav
       li(class=(type === 'horizontal' ? "col#{widthCol}" : "") )
-        a(href="#{n[1]}.html", class=activePage=== "#{n[1]}" ? "active" : "") !{n[0]}
+        +menuListLiA(n[1], n[0], prefix, suffix, activePage, linkClass, atts)
         if n[2]
           ul.listSub
             - each ni in n[2]
-              li: a(href="#{ni[1]}.html", class=activePage=== "#{ni[1]}" ? "active" : "") !{ni[0]}
-  
-mixin menuListLI()
-  a(href="#{n[1]}.html", class=activePage=== "#{n[1]}" ? "active" : "") !{n[0]}
-  if n[2]
-    ul.listSub
-      - each ni in n[2]
-        li: a(href="#{ni[1]}.html", class=activePage=== "#{ni[1]}" ? "active" : "") !{ni[0]}
+              li: +menuListLiA(ni[1], ni[0], prefix, suffix, activePage,linkClass, atts)
+
+
+mixin menuListLiA(url, text, prefix, suffix, activePage, linkClass, atts)
+  a(href="#{prefix}#{url}#{suffix}", class=activePage=== "#{url}" ? "active "+linkClass : linkClass)&attributes(atts) !{text}
+
 
 mixin scripts()
   - each sc in javascripts
@@ -68,18 +77,16 @@ mixin formSimple(para, de, asunto)
         +formInput('email', 'Correo', 'Correo electrónico:', 'usuario@dominio.com', true)
       .col6
         +formInput('tel', 'Tel', 'Número telefónico:', '(lada) + Dígitos', false)
-    .container
-      .col12
-        if block
-          block
+    if block
+      block
     .container
       .col12
         +formInput('textarea', 'Mensaje', 'Mensaje:', 'Escriba su mensaje', true)
 
     .container
-      .col6.resultado
+      .col6.resultado &nbsp;
       .col6
-        button(type="submit") Enviar
+        button(type="submit").btn Enviar
     
       
   

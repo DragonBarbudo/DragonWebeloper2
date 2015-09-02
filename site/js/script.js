@@ -1,5 +1,5 @@
 var bgimgs = [];
-var resultado;
+
 $(function(){
 /*################################################*/
   /*################################################*/
@@ -7,8 +7,15 @@ $(function(){
       /*################################################*/
   /* framework plugins */
 
+  if( $('[data-scroll]').length>0 ){
+    smoothScroll.init();
+  }
+
+
+  // FORMULARIO SIMPLE
 
   if($('form.simple').length>0){
+    var resultado;
     $('form.simple').submit(function(e){
       var _this = $(this);
       e.preventDefault();
@@ -22,6 +29,15 @@ $(function(){
           _this.find('.resultado').html('Ocurrió un error. Inténtelo de nuevo más tarde.');
         }
       });
+    });
+  }
+
+
+  // SCROLLREVEAL
+  if($('[data-sr]').length>0){
+    window.sr = new scrollReveal({
+      reset:true,
+      mobile:true
     });
   }
 

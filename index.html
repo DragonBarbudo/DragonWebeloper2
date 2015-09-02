@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.1/css/swipebox.min.css">
-    <link rel="stylesheet" href="site/css/_style.css">
+    <link rel="stylesheet" href="site/css/style.css">
   </head>
   <body>   
     <!-- ###################################### GRID-->
@@ -169,7 +169,7 @@
     <header class="container">
       <div class="col3"><a href="index.html" class="logo"><img src="http://lorempixel.com/100/100" alt=""></a></div>
       <div class="col9">
-        <h3>nav: +menuList('inicio', menu, 'horizontal')</h3>
+        <h3>nav: +menu('inicio', menu, 'horizontal', 'prefijo', 'sufijo')</h3>
         <nav>
           <ul class="listMain horizontal">
             <li class="col3"><a href="index.html">Inicio</a>
@@ -177,10 +177,6 @@
             <li class="col3"><a href="nosotros.html">Nosotros</a>
             </li>
             <li class="col3"><a href="servicios.html">Servicios</a>
-              <ul class="listSub">
-                <li><a href="r.html">P</a></li>
-                <li><a href="r.html">p</a></li>
-              </ul>
             </li>
             <li class="col3"><a href="contacto.html">Contacto</a>
             </li>
@@ -188,6 +184,24 @@
         </nav>
       </div>
     </header>
+    <!-- ###################################### ANIMACIONEs-->
+    <div class="container">
+      <h2 class="col12">Animación de aparición : ScrollReveal</h2>
+      <div class="col12"><a href="https://github.com/jlmakes/scrollReveal.js">https://github.com/jlmakes/scrollReveal.js</a></div>
+    </div>
+    <div class="container"> 
+      <h3 class="col6 push3">div(data-sr)</h3>
+    </div>
+    <div class="container">
+      <div data-sr class="col3">(data-sr)</div>
+      <div data-sr="enter top" class="col3">(data-sr="enter top")</div>
+      <div data-sr="move 50px" class="col3">(data-sr="move 50px enter left")</div>
+      <div data-sr="enter right move 50px" class="col3">(data-sr="enter right move 50px")</div>
+      <div data-sr="wait 0.8s flip 90deg" class="col3">(data-sr="wait 0.8s flip 90deg")</div>
+      <div data-sr="scale up 100% wait 0.5s" class="col3">(data-sr="scale up 100% wait 0.5s")</div>
+      <div data-sr="roll -45deg over 3.0s" class="col3">(data-sr="roll -45deg over 3.0s")</div>
+      <div data-sr="spin 180deg" class="col3">(data-sr="spin 180deg")</div>
+    </div>
     <!-- ###################################### LIGHTBOX-->
     <div class="container">
       <h2 class="col12">Modalbox : Swipebox</h2>
@@ -197,7 +211,7 @@
         <h3>Imagen <br> a(href="rutadeImagen.jpg").box</h3><a href="http://placehold.it/400x300" class="box"><img src="http://placehold.it/200x200" alt="" class="w100"></a>
       </div>
       <div class="col4">
-        <h3>Imagen con titulo <br> a(href="rutadeImagen.jpg", title="Título de imagen").box</h3><a href="http://placehold.it/800x200" title="Título de imagen" class="box"><img src="http://placehold.it/200x200" alt="" class="w100"></a>
+        <h3>Imagen con titulo <br> a(href="rutadeImagen.jpg", title="Tí­tulo de imagen").box</h3><a href="http://placehold.it/800x200" title="TÃ­tulo de imagen" class="box"><img src="http://placehold.it/200x200" alt="" class="w100"></a>
       </div>
       <div class="col4">
         <h3>Video <br> a(href=""http://vimeo.com o http://youtube.com URL").box</h3><a href="http://vimeo.com/29193046" class="box"><img src="https://i.vimeocdn.com/video/236084241_150x84.jpg" alt="" class="w100"></a>
@@ -296,24 +310,20 @@
           </div>
           <div class="container">
             <div class="col12">
-            </div>
-          </div>
-          <div class="container">
-            <div class="col12">
               <label for="Mensaje">Mensaje:</label>
               <textarea name="Mensaje" placeholder="Escriba su mensaje" required></textarea>
             </div>
           </div>
           <div class="container">
-            <div class="col6 resultado"></div>
+            <div class="col6 resultado">&nbsp;</div>
             <div class="col6">
-              <button type="submit">Enviar</button>
+              <button type="submit" class="btn">Enviar</button>
             </div>
           </div>
         </form>
       </div>
       <div class="col6">
-        <h3>Formulario simple + Campos personalizados <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo') : +formInput('text', 'Empresa', 'Empresa:', '¿Dónde trabajas?', false)</h3>
+        <h3>Formulario simple + Campos personalizados <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo') : +formInput('text', 'Empresa', 'Empresa:', '¿dónde trabajas?', false)</h3>
         <form action="#" class="simple">
           <input type="hidden" name="_to" placeholder="0" required="0" value="ealbinu@gmail.com">
           <input type="hidden" name="_from" placeholder="0" required="0" value="albin@dragonbarbudo.com">
@@ -335,17 +345,13 @@
             </div>
           </div>
           <div class="container">
-            <div class="col12">
-              <div class="container">
-                <div class="col6">
-                  <label for="Empresa">Empresa:</label>
-                  <input type="text" name="Empresa" placeholder="¿Dónde trabajas?">
-                </div>
-                <div class="col6">
-                  <label for="Nacimiento">Fecha de nacimiento:</label>
-                  <input type="date" name="Nacimiento" placeholder="">
-                </div>
-              </div>
+            <div class="col6">
+              <label for="Empresa">Empresa:</label>
+              <input type="text" name="Empresa" placeholder="Â¿DÃ³nde trabajas?">
+            </div>
+            <div class="col6">
+              <label for="Nacimiento">Fecha de nacimiento:</label>
+              <input type="date" name="Nacimiento" placeholder="">
             </div>
           </div>
           <div class="container">
@@ -355,9 +361,9 @@
             </div>
           </div>
           <div class="container">
-            <div class="col6 resultado"></div>
+            <div class="col6 resultado">&nbsp;</div>
             <div class="col6">
-              <button type="submit">Enviar</button>
+              <button type="submit" class="btn">Enviar</button>
             </div>
           </div>
         </form>
@@ -368,6 +374,9 @@
     <script src="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.swipebox/1.4.1/js/jquery.swipebox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-    <script src="site/js/_script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/2.3.2/scrollReveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/0.1.10/jquery.scrollify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/7.0.2/js/smooth-scroll.min.js"></script>
+    <script src="site/js/script.js"></script>
   </body>
 </html>

@@ -94,16 +94,32 @@ include site/_config.jade
         #bgslider2
           p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima saepe hic esse eaque recusandae temporibus, nobis ipsum beatae, magnam facilis, quidem unde repellendus accusantium odit similique aut suscipit quo fugiat.
     // ###################################### HEAD
-    
+
     .container
       h2.col12 Header
     header.container
       .col3
         a(href=domain).logo: img(src="http://lorempixel.com/100/100", alt="")
       .col9
-        h3 nav: +menuList('inicio', menu, 'horizontal')
+        h3 nav: +menu('inicio', menu, 'horizontal', 'prefijo', 'sufijo')
         nav
-          +menuList('inicio', menu, 'horizontal')
+          +menu('inicio', menu, 'horizontal')
+
+    // ###################################### ANIMACIONEs
+    .container
+      h2.col12 Animación de aparición : ScrollReveal
+      .col12: a(href="https://github.com/jlmakes/scrollReveal.js") https://github.com/jlmakes/scrollReveal.js
+    .container  
+      h3.col6.push3 div(data-sr)
+    .container
+      .col3(data-sr) (data-sr)
+      .col3(data-sr="enter top") (data-sr="enter top")
+      .col3(data-sr="move 50px") (data-sr="move 50px enter left")
+      .col3(data-sr="enter right move 50px") (data-sr="enter right move 50px")
+      .col3(data-sr="wait 0.8s flip 90deg") (data-sr="wait 0.8s flip 90deg")
+      .col3(data-sr="scale up 100% wait 0.5s") (data-sr="scale up 100% wait 0.5s")
+      .col3(data-sr="roll -45deg over 3.0s") (data-sr="roll -45deg over 3.0s")
+      .col3(data-sr="spin 180deg") (data-sr="spin 180deg")
     
     // ###################################### LIGHTBOX
     .container
@@ -114,8 +130,8 @@ include site/_config.jade
         a(href="http://placehold.it/400x300").box
           img(src="http://placehold.it/200x200", alt="").w100
       .col4
-        h3 Imagen con titulo <br> a(href="rutadeImagen.jpg", title="Título de imagen").box
-        a(href="http://placehold.it/800x200", title="Título de imagen").box
+        h3 Imagen con titulo <br> a(href="rutadeImagen.jpg", title="Tí­tulo de imagen").box
+        a(href="http://placehold.it/800x200", title="TÃ­tulo de imagen").box
           img(src="http://placehold.it/200x200", alt="").w100
       .col4
         h3 Video <br> a(href=""http://vimeo.com o http://youtube.com URL").box
@@ -166,11 +182,11 @@ include site/_config.jade
         h3 Formulario simple <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo')
         +formSimple('ealbinu@gmail.com', 'albin@dragonbarbudo.com', 'Probando correo electronico')
       .col6
-        h3 Formulario simple + Campos personalizados <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo') : +formInput('text', 'Empresa', 'Empresa:', '¿Dónde trabajas?', false)
+        h3 Formulario simple + Campos personalizados <br> +formSimple('para@quien.com', 'de@quien.com', 'Asunto del correo') : +formInput('text', 'Empresa', 'Empresa:', '¿dónde trabajas?', false)
         +formSimple('ealbinu@gmail.com', 'albin@dragonbarbudo.com', 'Probando correo electronico')
           .container
             .col6
-              +formInput('text', 'Empresa', 'Empresa:', '¿Dónde trabajas?', false)
+              +formInput('text', 'Empresa', 'Empresa:', 'Â¿DÃ³nde trabajas?', false)
             .col6
               +formInput('date', 'Nacimiento', 'Fecha de nacimiento:', '', false)
 
