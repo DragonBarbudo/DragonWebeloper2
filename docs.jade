@@ -1,3 +1,5 @@
+//output: docs.html, pretty:false
+
 include site/_config.jade
 
 +html5
@@ -37,6 +39,7 @@ include site/_config.jade
         - submenuDocsEs.push(['Grid', 'gridless'])
         - submenuDocsEs.push(['Responsive', 'responsive'])
         - submenuDocsEs.push(['Estados animados', 'estadosAnimados'])
+        - submenuDocsEs.push(['Utilidades', 'utilidades'])
         - menuDocs.push(['Estilos', 'estilos', submenuDocsEs]) //[2]
         
         nav.main: +menu('', menuDocs, 'vertical', '#', ' ', 'btn', {'data-scroll':true})
@@ -651,8 +654,9 @@ include site/_config.jade
             .container
               .col12
                 p
-        .container#estadosAnimados
-          .col12: h2 Estados animados
+        
+        .container#utilidades
+          .col12: h2 Utilidades
           .col12
             .container
               .col12
