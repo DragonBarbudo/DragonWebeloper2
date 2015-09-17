@@ -1035,11 +1035,13 @@ code {
   border: 2px dashed #888888;
   padding: 20px;
   text-align: center;
+  margin: 10px 0;
 }
 .seccionScroll {
   padding: 20px;
   text-align: center;
   border: 1px solid #feca2e;
+  margin: 10px 0;
 }
 /* ################################ CONTAINER WIDTHS: */
 /* ################################ COLORS */
