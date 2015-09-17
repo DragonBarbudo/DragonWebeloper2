@@ -27,6 +27,7 @@ include site/_config.jade
         - submenuDocs.push(['Jade', 'jade'])
         - submenuDocs.push(['Grid', 'grid'])
         - submenuDocs.push(['Navegación', 'navegacion'])
+        - submenuDocs.push(['Scroll', 'scroll'])
         - submenuDocs.push(['Slider', 'slider'])
         - submenuDocs.push(['ModalBox', 'modalbox'])
         - submenuDocs.push(['Formularios', 'formularios'])
@@ -351,7 +352,32 @@ include site/_config.jade
                     br
                     p.small Cada link tiene animación mediante el attributo data-sr. Ver módulo "Animaciónes".
                     
-                    
+        .container#scroll
+          .col12: h3 Scroll
+          .col12
+            .container
+              .col12
+                p Se puede añadir una navegación mediante "scroll animado" de una sección a otra. Útil para sitios de 1 sola página.
+                p El scroll se puede aplicar a links (a) utilizando <strong>href="#seccion"</strong> y el atributo <strong>data-scroll</strong>. Dentro de los href se deberá iniciar con <strong>#</strong> seguido del <strong>ID</strong> de la sección destino.
+                code
+                  | a(href="#seccionScroll1", data-scroll)#botonScroll1 Ir a #seccionScroll1
+                  br
+                  br
+                  | .seccionEspaciadora
+                  br
+                  | #seccionScroll1
+                  br
+                a(href="#seccionScroll1", data-scroll)#botonScroll1.btn Ir a #seccionScroll1
+                br
+                .seccionEspaciadora .seccionEspaciadora
+                #seccionScroll1.seccionScroll 
+                  p #seccionScroll1 
+                  br
+                  a(href="#botonScroll1", data-scroll).btn Regresar a #botonScroll1
+              .col12
+                p Para utilizar el menú principal como navegador mediante scroll se debe generar con los siguientes parámetros:
+                code +menu('index', menu, 'horizontal', '#', ' ', '', {'data-scroll':true})
+                nav.example: +menu('index', menu, 'horizontal', '#', ' ', '', {'data-scroll':true})
         .container#slider
           .col12
             h3 Slider | 
